@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<project name="WARBuild" basedir="." default="zip">
+
+    <target name="init" description="Initializes properties">
+        <property name="project.name" value="JPetStore" />
+        <property name="base.dir" value="." />
+    </target>
+
+
+    <target name="zip" description="Delete the build directory" depends="init">
+        <delete dir="${base.dir}/../zip"  />
+        <mkdir dir="${base.dir}/../zip" />
+        <zip destfile="${base.dir}/../zip/${project.name}.war" basedir="${base.dir}" update="false"/>
+    </target>
+
+</project>
